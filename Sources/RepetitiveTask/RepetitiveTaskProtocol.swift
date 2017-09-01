@@ -22,13 +22,13 @@ private struct RequestWithRetry {
     var currentRetry = 0
     private let failureCallback: (Error) -> Void
     private let successCallback: (Data) -> Void
-    
+
     init(retryCount: Int, failure: @escaping (Error) -> Void , success: @escaping (Data) -> Void) {
         self.retryCount = retryCount
         self.failureCallback = failure
         self.successCallback = success
     }
-    
+
     mutating func run(transientTask: RepetitiveTaskProtocol) {
         transientTask.run { (RepetitiveTaskResult) -> Void in
             switch (RepetitiveTaskResult) {
