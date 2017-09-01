@@ -5,7 +5,7 @@ public enum RepetitiveTaskError: Error {
     case RetryFailed(Int)
     case RetryDelay(Double)
     case NoData
-    
+
     var isTransient: Bool {
         switch (self) {
         case .RetryDelay:
