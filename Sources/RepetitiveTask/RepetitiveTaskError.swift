@@ -1,7 +1,7 @@
 import Foundation
 
-public enum RepetitiveTaskError: ErrorType {
-    case Failed(NSError)
+public enum RepetitiveTaskError: Error {
+    case Failed(Error)
     case RetryFailed(Int)
     case RetryDelay(Double)
     case NoData
